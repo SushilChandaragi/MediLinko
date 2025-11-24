@@ -1,47 +1,62 @@
-# Medilinko - Stay Linked and Stay Healthy
+# 🏥 Medilinko - Healthcare App
 
-A comprehensive healthcare Flutter app connecting Doctors, Pharmacists, and Patients in one platform.
+> **Stay Linked and Stay Healthy** - Connecting Doctors, Pharmacists, and Patients
 
-## Features
+## 📱 About
+
+Medilinko is a Flutter healthcare application connecting three key roles:
+- **👨‍⚕️ Doctors** - Manage appointments and patients
+- **💊 Pharmacists** - Handle medicine inventory
+- **🏥 Patients** - Find doctors and manage health
+
+## ✨ Features
 
 ### For Patients
-- **Doctor Search & Discovery**: Search doctors by specialty, view ratings, timing, and location on map
-- **Appointment Booking**: Schedule appointments with preferred doctors
-- **Prescription Management**: Save and view prescriptions (text or image-based)
-- **Medicine Search**: Find available medicines across pharmacies
-- **Profile Management**: Store personal health information, allergies, chronic diseases
+- Search doctors by specialty with ratings
+- Book appointments
+- View and save prescriptions
+- Track medical history
 
 ### For Doctors
-- **Dashboard**: View today's and upcoming appointments
-- **Patient Management**: Access patient profiles and medical history
-- **Prescription Creation**: Create prescriptions by typing or uploading images
-- **Appointment Tracking**: Manage appointment status and patient treatments
+- View today's and upcoming appointments
+- Manage patient list
+- Track appointment status
 
 ### For Pharmacists
-- **Medicine Inventory**: Manage medicine batches with quantity tracking
-- **Batch Management**: Store medicines with manufacturing and expiry dates
-- **Expiry Alerts**: Automatic alerts for medicines nearing expiry (30 days warning, 7 days critical)
-- **Medicine Lookup**: Quick search for medicine availability and stock levels
+- Manage medicine inventory in batches
+- Get expiry alerts (30 days warning, 7 days critical)
+- Search medicine availability
 
-## Tech Stack
+## 🚀 Quick Start
 
-- **Framework**: Flutter 3.0+
-- **State Management**: Provider
-- **Navigation**: Go Router
-- **Local Database**: SQLite (via sqflite)
-- **Maps**: Google Maps Flutter
-- **UI**: Material Design 3 with custom healthcare theme
+See **[SETUP.md](SETUP.md)** for installation instructions.
 
-## Project Structure
+**TL;DR:**
+```bash
+git clone https://github.com/SushilChandaragi/MediLinko.git
+cd MediLinko
+flutter pub get
+flutter run -d chrome
+```
+
+**Test Login:** Any email + password (6+ chars), then select a role.
+
+## 🛠️ Tech Stack
+
+- **Flutter** 3.0+ (Dart SDK)
+- **Provider** - State management
+- **Google Maps** - Location services
+- **SQLite** - Local database
+- **Material Design 3** - UI framework
+
+## 📁 Project Structure
 
 ```
 lib/
-├── main.dart                          # App entry point
+├── main.dart
 ├── core/
-│   ├── theme/
-│   │   └── app_theme.dart            # App-wide theme configuration
-│   ├── constants/
-│   │   └── app_constants.dart        # Constants and configuration
+│   ├── theme/app_theme.dart          # Colors & styling
+│   ├── constants/app_constants.dart  # App constants
 │   └── models/                       # Data models
 │       ├── user_model.dart
 │       ├── doctor_model.dart
@@ -49,456 +64,202 @@ lib/
 │       ├── appointment_model.dart
 │       ├── prescription_model.dart
 │       └── medicine_model.dart
-├── features/
-│   ├── auth/                         # Authentication
-│   │   ├── screens/
-│   │   │   └── login_screen.dart
-│   │   └── providers/
-│   │       └── auth_provider.dart
-│   ├── doctor/                       # Doctor features
-│   │   ├── screens/
-│   │   │   └── doctor_dashboard_screen.dart
-│   │   └── widgets/
-│   │       └── appointment_card.dart
-│   ├── pharmacist/                   # Pharmacist features
-│   │   └── screens/
-│   │       └── pharmacist_dashboard_screen.dart
-│   └── patient/                      # Patient features
-│       └── screens/
-│           └── patient_dashboard_screen.dart
-└── assets/
-    ├── images/
-    ├── icons/
-    └── logo/
+└── features/
+    ├── auth/
+    │   ├── providers/auth_provider.dart
+    │   └── screens/login_screen.dart
+    ├── doctor/
+    │   ├── screens/doctor_dashboard_screen.dart
+    │   └── widgets/appointment_card.dart
+    ├── pharmacist/
+    │   └── screens/pharmacist_dashboard_screen.dart
+    └── patient/
+        └── screens/patient_dashboard_screen.dart
 ```
 
-## Getting Started
+## 🎨 Color Theme
 
-### Prerequisites
+- **Primary**: Teal `#2E7D82` (Healthcare calm)
+- **Secondary**: Green `#4CAF50` (Health & vitality)
+- **Accent**: Cyan `#00BCD4`
+- **Role Colors**: Blue (Doctor), Purple (Pharmacist), Teal (Patient)
 
-- Flutter SDK (3.0.0 or higher)
-- Dart SDK (3.0.0 or higher)
-- Android Studio / VS Code with Flutter extensions
-- Android Emulator / iOS Simulator / Physical Device
+## 💻 Development
 
-### Installation Steps
+### Adding New Features
 
-1. **Clone/Extract the Project**
-   ```bash
-   cd "MINI PROJECT"
-   ```
+**1. Create a new screen:**
+```dart
+// lib/features/[role]/screens/new_screen.dart
+import 'package:flutter/material.dart';
 
-2. **Install Dependencies**
-   ```bash
-   flutter pub get
-   ```
-
-3. **Run the App**
-   ```bash
-   flutter run
-   ```
-
-   Or select your device in VS Code/Android Studio and press F5
-
-### For Team Members
-
-#### Setting Up Development Environment
-
-1. **Install Flutter**: Follow [official Flutter installation guide](https://flutter.dev/docs/get-started/install)
-   
-2. **Verify Installation**:
-   ```bash
-   flutter doctor
-   ```
-   Fix any issues reported
-
-3. **IDE Setup**:
-   - **VS Code**: Install Flutter and Dart extensions
-   - **Android Studio**: Install Flutter plugin
-
-4. **Get Project Dependencies**:
-   ```bash
-   flutter pub get
-   ```
-
-#### Running the App
-
-- **Debug Mode** (with hot reload):
-  ```bash
-  flutter run
-  ```
-
-- **Release Mode**:
-  ```bash
-  flutter run --release
-  ```
-
-- **Specific Device**:
-  ```bash
-  flutter devices  # List available devices
-  flutter run -d <device-id>
-  ```
-
-## Demo Usage
-
-The app currently runs in demo mode with mock authentication:
-
-**Login Credentials**: 
-- Email: Any valid email format
-- Password: Any password (minimum 6 characters)
-- Select Role: Patient / Doctor / Pharmacist
-
-Each role will navigate to its respective dashboard.
-
-## Adding New Features
-
-### Doctor Features
-Location: `lib/features/doctor/`
-
-**To add new doctor features**:
-1. Create screen in `screens/` folder
-2. Add navigation in `doctor_dashboard_screen.dart`
-3. Create reusable widgets in `widgets/` folder
-
-Example areas to enhance:
-- Patient profile details page
-- Prescription creation with image upload
-- Appointment details and notes
-- Medical history viewer
-
-### Pharmacist Features
-Location: `lib/features/pharmacist/`
-
-**To add new pharmacist features**:
-1. Create screen in `screens/` folder
-2. Add to bottom navigation or as separate screen
-
-Example areas to enhance:
-- Add/Edit medicine batch form
-- Batch details with QR code
-- Sales tracking
-- Low stock alerts
-- Reports and analytics
-
-### Patient Features
-Location: `lib/features/patient/`
-
-**To add new patient features**:
-1. Create screen in `screens/` folder
-2. Add to existing tabs or create new tab
-
-Example areas to enhance:
-- Doctor details with map integration
-- Appointment booking calendar
-- Prescription image viewer
-- Medicine order tracking
-- Health records upload
-- Chat with doctor
-
-### Shared Components
-Location: `lib/core/`
-
-**To add shared functionality**:
-- Models: Add to `core/models/`
-- Theme: Update `core/theme/app_theme.dart`
-- Constants: Add to `core/constants/app_constants.dart`
-
-## Backend Integration Guide
-
-### Current State
-- App uses local state management (Provider)
-- Mock data for demonstration
-- No backend connectivity yet
-
-### Backend Structure Recommendation
-
-#### Technology Options
-1. **Node.js + Express + MongoDB**
-2. **Firebase (Quick Setup)**
-3. **Django + PostgreSQL**
-4. **Spring Boot + MySQL**
-
-#### Required API Endpoints
-
-**Authentication**
-```
-POST /api/auth/register
-POST /api/auth/login
-POST /api/auth/logout
-GET  /api/auth/profile
+class NewScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('New Feature')),
+      body: Center(child: Text('Coming soon')),
+    );
+  }
+}
 ```
 
-**Doctor APIs**
-```
-GET    /api/doctors
-GET    /api/doctors/:id
-POST   /api/doctors
-PUT    /api/doctors/:id
-GET    /api/doctors/:id/appointments
-POST   /api/doctors/:id/prescriptions
-GET    /api/doctors/:id/patients
+**2. Add route in constants:**
+```dart
+// lib/core/constants/app_constants.dart
+static const String newFeatureRoute = '/new-feature';
 ```
 
-**Patient APIs**
-```
-GET    /api/patients/:id
-PUT    /api/patients/:id
-GET    /api/patients/:id/appointments
-POST   /api/patients/:id/appointments
-GET    /api/patients/:id/prescriptions
-GET    /api/doctors/search?specialty=&location=
+**3. Navigate to it:**
+```dart
+Navigator.pushNamed(context, AppConstants.newFeatureRoute);
 ```
 
-**Pharmacist APIs**
-```
-GET    /api/medicines
-POST   /api/medicines
-GET    /api/medicines/:id
-PUT    /api/medicines/:id
-GET    /api/medicine-batches
-POST   /api/medicine-batches
-GET    /api/medicine-batches/expiring
-PUT    /api/medicine-batches/:id
+### Changing Colors
+
+Edit `lib/core/theme/app_theme.dart`:
+```dart
+static const primaryColor = Color(0xFF2E7D82);  // Change hex code
 ```
 
-**Appointment APIs**
+### Testing
+- **Hot Reload**: Press `r` while app is running
+- **Hot Restart**: Press `R`
+- **Login**: Any email + password (6+ chars)
+
+## 🔧 Backend Integration
+
+Currently uses **mock data**. To connect a real backend:
+
+### 1. Create API Service
+```dart
+// lib/core/services/api_service.dart
+class ApiService {
+  static const baseUrl = 'https://your-api.com';
+  
+  Future<List<Doctor>> getDoctors() async {
+    final response = await http.get('$baseUrl/doctors');
+    // Parse and return
+  }
+}
 ```
-GET    /api/appointments
-POST   /api/appointments
-GET    /api/appointments/:id
-PUT    /api/appointments/:id
-DELETE /api/appointments/:id
+
+### 2. Update Providers
+Replace mock data in providers with API calls.
+
+### 3. Recommended Backend Stack
+- **Node.js + Express + MongoDB** (Easiest)
+- **Python + Django + PostgreSQL**
+- **Spring Boot + MySQL**
+
+### API Endpoints Needed
+```
+POST   /auth/login
+POST   /auth/register
+GET    /doctors
+GET    /doctors/:id
+POST   /appointments
+GET    /appointments/patient/:id
+GET    /appointments/doctor/:id
+POST   /prescriptions
+GET    /prescriptions/patient/:id
+GET    /medicines
+POST   /medicines/batch
 ```
 
-**Prescription APIs**
-```
-GET    /api/prescriptions
-POST   /api/prescriptions
-GET    /api/prescriptions/:id
-POST   /api/prescriptions/upload-image
-```
+## 📊 Database Schema
 
-#### Database Schema
+### Users Table
+- id, email, password_hash, name, role, phone, profile_image, created_at
 
-**Users Table**
-- id (PK)
-- email (unique)
-- password_hash
-- name
-- phone
-- role (enum: doctor, pharmacist, patient)
-- profile_image_url
-- created_at
-- updated_at
+### Doctors Table
+- id, user_id (FK), specialty, qualification, experience_years, clinic_name, clinic_address, latitude, longitude, working_hours_start, working_hours_end, consultation_fee, rating, bio
 
-**Doctors Table**
-- id (PK)
-- user_id (FK to Users)
-- specialty
-- qualification
-- experience_years
-- clinic_name
-- clinic_address
-- latitude
-- longitude
-- working_hours_start
-- working_hours_end
-- consultation_fee
-- rating
-- total_ratings
-- bio
+### Patients Table
+- id, user_id (FK), date_of_birth, gender, blood_group, height, weight, allergies, chronic_diseases, emergency_contact
 
-**Patients Table**
-- id (PK)
-- user_id (FK to Users)
-- date_of_birth
-- gender
-- blood_group
-- height
-- weight
-- address
-- allergies
-- chronic_diseases
-- emergency_contact_name
-- emergency_contact_phone
+### Appointments Table
+- id, patient_id (FK), doctor_id (FK), appointment_date, time_slot, status, symptoms, diagnosis, notes
 
-**Appointments Table**
-- id (PK)
-- patient_id (FK)
-- doctor_id (FK)
-- appointment_date
-- time_slot
-- status (enum: pending, confirmed, completed, cancelled)
-- symptoms
-- diagnosis
-- notes
-- created_at
-- updated_at
+### Prescriptions Table
+- id, patient_id (FK), doctor_id (FK), appointment_id (FK), diagnosis, medicines (JSON), prescription_image
 
-**Prescriptions Table**
-- id (PK)
-- patient_id (FK)
-- doctor_id (FK)
-- appointment_id (FK, nullable)
-- prescription_date
-- diagnosis
-- medicines (JSON or separate table)
-- additional_notes
-- prescription_image_url
-- created_at
+### Medicines Table
+- id, name, generic_name, category, manufacturer, price, requires_prescription
 
-**Medicines Table**
-- id (PK)
-- name
-- generic_name
-- category
-- manufacturer
-- description
-- price
-- requires_prescription (boolean)
-- created_at
+### Medicine Batches Table
+- id, medicine_id (FK), pharmacist_id (FK), batch_number, quantity, remaining_quantity, manufacturing_date, expiry_date
 
-**Medicine_Batches Table**
-- id (PK)
-- medicine_id (FK)
-- pharmacist_id (FK)
-- batch_number (unique)
-- quantity
-- remaining_quantity
-- manufacturing_date
-- expiry_date
-- purchase_price
-- selling_price
-- created_at
-- updated_at
+## 🐛 Troubleshooting
 
-#### Integration Steps
+### "Flutter not found"
+Install Flutter: https://flutter.dev/docs/get-started/install
 
-1. **Setup HTTP Client** (Already included: `http` and `dio` packages)
-
-2. **Create API Service Layer**
-   ```
-   lib/core/services/
-   ├── api_service.dart          # Base API client
-   ├── auth_service.dart         # Authentication APIs
-   ├── doctor_service.dart       # Doctor APIs
-   ├── patient_service.dart      # Patient APIs
-   └── pharmacist_service.dart   # Pharmacist APIs
-   ```
-
-3. **Update Providers**
-   - Replace mock data with API calls
-   - Add loading states
-   - Handle errors
-
-4. **Add Environment Configuration**
-   ```dart
-   // lib/core/config/environment.dart
-   class Environment {
-     static const String apiBaseUrl = 'YOUR_API_URL';
-     static const String googleMapsApiKey = 'YOUR_MAPS_KEY';
-   }
-   ```
-
-5. **Implement Authentication Token Storage**
-   - Use shared_preferences to store JWT token
-   - Add token to all API requests
-   - Implement token refresh logic
-
-## Google Maps Setup (For Patient Features)
-
-1. **Get API Key** from [Google Cloud Console](https://console.cloud.google.com/)
-
-2. **Android**: Add to `android/app/src/main/AndroidManifest.xml`
-   ```xml
-   <meta-data
-       android:name="com.google.android.geo.API_KEY"
-       android:value="YOUR_API_KEY"/>
-   ```
-
-3. **iOS**: Add to `ios/Runner/AppDelegate.swift`
-   ```swift
-   GMSServices.provideAPIKey("YOUR_API_KEY")
-   ```
-
-## Building for Production
-
-### Android APK
+### "No devices found"
 ```bash
-flutter build apk --release
-```
-Output: `build/app/outputs/flutter-apk/app-release.apk`
-
-### Android App Bundle (for Play Store)
-```bash
-flutter build appbundle --release
+flutter devices  # Check available devices
+flutter run -d chrome  # Use Chrome
 ```
 
-### iOS
-```bash
-flutter build ios --release
-```
-
-## Troubleshooting
-
-**Package errors**: Run `flutter pub get`
-
-**Build errors**: 
+### Build errors after git clone
 ```bash
 flutter clean
 flutter pub get
-flutter run
 ```
 
-**Hot reload not working**: Press `r` in terminal or restart app with `R`
+### Hot reload not working
+Press `R` (capital R) for full restart
 
-## Color Theme
+## 📝 To-Do List
 
-- **Primary (Teal)**: #2E7D82 - Trust & health
-- **Secondary (Green)**: #4CAF50 - Wellness
-- **Accent (Cyan)**: #00BCD4 - Medical
-- **Doctor Theme**: #1976D2 (Blue)
-- **Pharmacist Theme**: #7B1FA2 (Purple)
-- **Patient Theme**: #2E7D82 (Teal)
+### Phase 1 (Essential)
+- [ ] Patient profile edit screen
+- [ ] Doctor appointment details screen
+- [ ] Book appointment form
+- [ ] Create prescription form
+- [ ] Backend API implementation
 
-## Contributing
-
-When adding features:
-1. Follow existing project structure
-2. Use provided theme colors
-3. Add comments for complex logic
-4. Test on both Android and iOS if possible
-5. Update this README if adding major features
-
-## Team Workflow
-
-1. **Feature Development**: Create features in respective folders
-2. **Testing**: Test on emulator/device before committing
-3. **Code Review**: Review each other's code
-4. **Integration**: Integrate backend when ready
-5. **Documentation**: Update README and add code comments
-
-## Future Enhancements
-
+### Phase 2 (Advanced)
 - [ ] Google Maps integration for doctor location
+- [ ] Image upload for prescriptions
 - [ ] Push notifications for appointments
-- [ ] Chat between doctor and patient
-- [ ] Video consultation
-- [ ] Medicine order and delivery
+- [ ] Real-time chat between patient-doctor
 - [ ] Payment gateway integration
-- [ ] Health records upload (PDF, images)
-- [ ] Emergency services
-- [ ] Medicine reminder notifications
+
+### Phase 3 (Enhancements)
+- [ ] Video consultation
+- [ ] Health records export (PDF)
+- [ ] Medicine price comparison
+- [ ] Pharmacy home delivery
 - [ ] Multi-language support
 
-## License
+## 👥 Team Collaboration
+
+1. **Clone the repo**
+2. **Create feature branch**: `git checkout -b feature/your-feature`
+3. **Make changes** and test
+4. **Commit**: `git commit -m "Add feature"`
+5. **Push**: `git push origin feature/your-feature`
+6. **Create Pull Request** on GitHub
+
+## 📄 License
 
 This project is for educational purposes.
 
-## Contact
+## 🤝 Contributing
 
-For queries related to this project, contact your team lead or project supervisor.
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
+
+## 📞 Support
+
+- **Issues**: Create a GitHub issue
+- **Questions**: Check the code comments
+- **Setup Help**: See [SETUP.md](SETUP.md)
 
 ---
 
-**Medilinko - Connecting healthcare, one click at a time.** 🏥💙
+**Built with ❤️ using Flutter** | [GitHub](https://github.com/SushilChandaragi/MediLinko)
